@@ -1,0 +1,21 @@
+#%RAML 1.0 Trait
+
+usage: Apply this trait to a GET method that supports pagination. 
+
+queryParameters:
+  limit:
+    description: maximum number of records in the request [use 0 for all]
+    type: integer
+    default: 1
+    minimum: 0
+    maximum: 99999
+    example: 1
+    
+  offset:
+    description: OFFSET says to skip that many rows before beginning to return rows.
+    type: integer
+    default: 0
+    minimum: 0
+    maximum: 99999
+    example: 0
+

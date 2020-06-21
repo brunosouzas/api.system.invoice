@@ -1,0 +1,32 @@
+#%RAML 1.0 DataType
+
+properties:
+  invoiceId:
+    description: Invoice Identify
+    type: integer
+
+  customerId:
+    description: Customer Identify
+    type: integer
+
+  contractId?:
+    description: Contract Number
+    type: integer
+
+  invoiceNumber?:
+    description: Invoice Number
+    type: string
+    maxLength: 50
+
+  invoiceAmout?:
+    description: Invoice Amount
+    type: number
+
+  currencyCode?:
+    description: Currency Code
+    type: string
+    maxLength: 4
+
+  invoiceDueDate?:
+    description: Invoice Due Date
+    type: date-only

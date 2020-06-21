@@ -1,0 +1,7 @@
+#%RAML 1.0 Trait
+
+headers: 
+  x-correlation-id?:
+    description: |
+          Use the above header to optionally pass a tracking information to this API, for end-to-end traceability of the operation/transaction. the x-correlation-id will be returned to the consumer in the API response. 
+    type: string

@@ -1,0 +1,15 @@
+{
+  "main": "token.raml",
+  "name": "security - Token",
+  "classifier": "raml-fragment",
+  "tags": [],
+  "groupId": "325e3d86-1f00-493a-97c7-071bc687c5d6",
+  "assetId": "security_token",
+  "version": "1.0.0",
+  "originalFormatVersion": "1.0",
+  "metadata": {
+    "projectId": "451aa4b1-9859-4a7c-bd9e-ce2e393a43bb",
+    "branchId": "master",
+    "commitId": "ecd0e1a0f60e366f7d4f806610faf999301c6c91"
+  }
+}

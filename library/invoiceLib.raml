@@ -1,0 +1,15 @@
+#%RAML 1.0 Library
+
+securitySchemes:
+  token: !include exchange_modules/325e3d86-1f00-493a-97c7-071bc687c5d6/security_token/1.0.0/token.raml
+
+types:
+  errorResponse: !include exchange_modules/325e3d86-1f00-493a-97c7-071bc687c5d6/datatype_error/1.0.0/error.raml
+
+traits:
+  invoices_qp: !include ../traits/queryParameters_invoices.raml
+  trackable: !include exchange_modules/325e3d86-1f00-493a-97c7-071bc687c5d6/trait_trackable/1.0.0/trackable.raml
+  pageable: !include exchange_modules/325e3d86-1f00-493a-97c7-071bc687c5d6/trait_pageAble/1.0.1/pageable.raml
+
+resourceTypes:
+  readOnly: !include exchange_modules/325e3d86-1f00-493a-97c7-071bc687c5d6/resourceType_readOnly/1.0.1/readOnly.raml

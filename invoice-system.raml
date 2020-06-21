@@ -1,0 +1,80 @@
+#%RAML 1.0
+baseUri: https://anypoint.mulesoft.com/mocking/api/v1/links/e1370f60-4624-4702-b604-082d3ad3bad8/ # 
+title: Invoice System
+version: v1
+mediaType: application/json
+description: Invoice System
+
+uses:
+  cdm: library/invoiceLib.raml
+
+types:
+  invoices: !include dataType/invoices.raml
+  invoice: !include dataType/invoice.raml
+
+/invoices:
+  description: Invoices
+  type:
+    cdm.readOnly:
+      errorResponse: cdm.errorResponse
+      objectResponse: invoices
+  securedBy: cdm.token
+  get:
+    displayName: Invoices
+    is: [cdm.invoices_qp, cdm.trackable, cdm.pageable]
+
+  /{invoiceId}:
+    description: Invoice
+    type:
+      cdm.readOnly:
+        errorResponse: cdm.errorResponse
+        objectResponse: invoice
+    securedBy: cdm.token
+    uriParameters:
+      invoiceId:
+        description: Invoice Identify
+        type: string
+        maxLength: 50
+    get:
+      displayName: Invoice
+      is: [cdm.trackable]
+      headers:
+        Content-Type:
+          type: string
+          description: use text/plain to get pdf as base64 or application/json
+      responses:
+        200:
+          body:
+            text/plain:
+              type: string
+              example: !include examples/invoiceBase64.raml
+
+/contracts/{contractId}/invoices:
+  description: Invoices from Contract
+  type:
+    cdm.readOnly:
+      errorResponse: cdm.errorResponse
+      objectResponse: invoices
+  securedBy: cdm.token
+  uriParameters:
+    contractId?:
+      description: Contract Identify
+      type: integer
+  get:
+    displayName: Invoices from ContractId
+    is: [cdm.trackable]
+
+/customer/{customerId}/invoices:
+  description: Invoices from Contract
+  type:
+    cdm.readOnly:
+      errorResponse: cdm.errorResponse
+      objectResponse: invoices
+  securedBy: cdm.token
+  uriParameters:
+    customerId?:
+      description: Customer Identify
+      type: integer
+  get:
+    displayName: Invoices from CustomerId
+    is: [cdm.trackable]

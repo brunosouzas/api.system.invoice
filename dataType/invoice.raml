@@ -1,0 +1,15 @@
+#%RAML 1.0 DataType
+
+properties:
+  invoice:
+    type: !include invoiceObject.raml
+
+example:
+  invoice: 
+    invoiceId: 1
+    customerId: 10400043
+    contractId: 0040008557
+    invoiceNumber: "43190692660604001316550500001139691767689488"
+    invoiceAmout: 149.99
+    currencyCode: "BRL"
+    invoiceDueDate: 2020-07-01
